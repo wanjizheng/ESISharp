@@ -1,0 +1,24 @@
+language: csharp
+dist: trusty
+sudo: required
+mono: none
+dotnet: 2.0.0
+script:
+  - dotnet restore
+  - dotnet build ./ESISharp/
+  - dotnet build ./ESISharp.AuthRouter/
+after_success:
+  - sonar-scanner
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+addons:
+  sonarcloud:
+    organization: wranders-github
+    token:
+      secure: $SONARCLOUD_TOKEN
+    branches:
+      - master
+      - dev
+      - v1-core
