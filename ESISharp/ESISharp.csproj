@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="Model\Enumeration\Scopes\Scope.Planetss.cs" />
-  </ItemGroup>
-
 </Project>
