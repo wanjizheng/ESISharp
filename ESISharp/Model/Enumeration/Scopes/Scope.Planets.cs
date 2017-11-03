@@ -2,7 +2,7 @@
 {
     public partial class Scope
     {
-		public static class Planets
+        public static class Planets
         {
             public static readonly Scope ManagePlanets = new Scope("esi-planets.manage_planets.v1");
 

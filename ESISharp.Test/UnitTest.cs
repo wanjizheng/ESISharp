@@ -8,11 +8,12 @@ namespace ESISharp.Test
 {
     public class UnitTests
     {
-        Public PTest = new Public();
+        readonly Public PTest = new Public();
         
-        void Main()
+        [Fact]
+        public void Main()
         {
-            
+            PTest.SetUserAgent("ayyy");
         }
     }
 }

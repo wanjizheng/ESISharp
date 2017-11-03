@@ -18,7 +18,7 @@ namespace ESISharp.Model.Abstract
         internal HttpClient QueryClient;
         internal string UserAgent = @"ESISharp (github.com/wranders/ESISharp)";
 
-        internal EsiConnection()
+        protected EsiConnection()
         {
             QueryClient = new HttpClient(ClientHandler);
             QueryClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
