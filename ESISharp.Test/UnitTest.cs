@@ -1,3 +1,4 @@
+using ESISharp;
 using ESISharp.Model.Enumeration.Scopes;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,11 @@ namespace ESISharp.Test
 {
     public class UnitTests
     {
-
+        Public PTest = new Public();
+        
+        void Main()
+        {
+            
+        }
     }
 }
