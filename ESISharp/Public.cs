@@ -14,18 +14,16 @@ namespace ESISharp
 
     public class TestingCodeSmellDetection
     {
-        private FileStream fs;
+        private int one = 1;
+        private int two = 2;
+        private int inc = 3;
 
-        public void OpenResource(string path)
+        public void SomeMethod()
         {
-            this.fs = new FileStream(path, FileMode.Open);
-        }
-
-        public void WriteToFile(string path, string text)
-        {
-            var fs = new FileStream(path, FileMode.Open);
-            var bytes = Encoding.UTF8.GetBytes(text);
-            fs.Write(bytes, 0, bytes.Length);
+            if (one < two)
+            {
+                one =+ inc;
+            }
         }
     }
 }
