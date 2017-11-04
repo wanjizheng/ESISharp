@@ -1,8 +1,6 @@
-﻿using ESISharp.Model.Abstract;
-
-namespace ESISharp.Model.Enumeration
+﻿namespace ESISharp.Enumeration
 {
-    public class ResponseType : FakeEnumerator
+    public class ResponseType : Model.Abstract.FakeEnumerator
     {
         internal ResponseType(string value) : base(value) { }
 

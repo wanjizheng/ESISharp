@@ -1,4 +1,4 @@
-﻿using ESISharp.Model.Enumeration;
+﻿using ESISharp.Enumeration;
 using System;
 using System.Collections.Generic;
 

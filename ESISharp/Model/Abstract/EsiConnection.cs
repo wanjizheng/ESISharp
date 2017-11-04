@@ -1,4 +1,4 @@
-﻿using ESISharp.Model.Enumeration;
+﻿using ESISharp.Enumeration;
 using ESISharp.Model.Interface;
 using ESISharp.Web;
 using System;
@@ -27,34 +27,16 @@ namespace ESISharp.Model.Abstract
             QueryClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
         }
 
-        public void SetDataSource(DataSource datasource)
-        {
-            DataSource = datasource;
-        }
+        public void SetDataSource(DataSource datasource) => DataSource = datasource;
 
-        public void SetResponseType(ResponseType responsetype)
-        {
-            ResponseType = responsetype;
-        }
+        public void SetResponseType(ResponseType responsetype) => ResponseType = responsetype;
 
-        public void SetRetryStrategy(IEnumerable<TimeSpan> delays)
-        {
-            ClientHandler.SetRetryStrategy(delays);
-        }
+        public void SetRetryStrategy(IEnumerable<TimeSpan> delays) => ClientHandler.SetRetryStrategy(delays);
 
-        public void SetRoute(Route route)
-        {
-            Route = route;
-        }
+        public void SetRoute(Route route) => Route = route;
 
-        public void SetTimeout(TimeSpan timespan)
-        {
-            QueryClient.Timeout = timespan;
-        }
+        public void SetTimeout(TimeSpan timespan) => QueryClient.Timeout = timespan;
 
-        public void SetUserAgent(string useragent)
-        {
-            UserAgent = useragent;
-        }
+        public void SetUserAgent(string useragent) => UserAgent = useragent;
     }
 }

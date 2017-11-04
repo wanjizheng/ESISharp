@@ -1,10 +1,9 @@
-﻿using ESISharp.Model.Abstract;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ESISharp.Model.Enumeration.Scopes
+namespace ESISharp.Scopes
 {
-    public sealed partial class Scope : FakeEnumerator
+    public sealed partial class Scope : Model.Abstract.FakeEnumerator
     {
         internal static readonly Dictionary<string, Scope> Lookup = new Dictionary<string, Scope>();
 
@@ -16,7 +15,7 @@ namespace ESISharp.Model.Enumeration.Scopes
             }
         }
 
-        public static readonly IEnumerable<Scope> All = Lookup.Values.ToList();
+        public static readonly IEnumerable<Scope> All = typeof(Scope).GetNestedTypes().SelectMany(x => x.GetFields()).Select(x => (Scope)x.GetValue(null)).ToList();
 
         public static readonly Scope None = new Scope(string.Empty);
     }

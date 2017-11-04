@@ -4,9 +4,6 @@
     {
         public string Value { get; internal set; }
 
-        protected FakeEnumerator(string value)
-        {
-            this.Value = value;
-        }
+        protected FakeEnumerator(string value) => Value = value;
     }
 }

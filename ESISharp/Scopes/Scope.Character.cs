@@ -1,4 +1,4 @@
-﻿namespace ESISharp.Model.Enumeration.Scopes
+﻿namespace ESISharp.Scopes
 {
     public partial class Scope
     {

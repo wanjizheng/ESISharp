@@ -7,6 +7,7 @@ namespace ESISharp.AuthRouter
         static void Main(string[] args)
         {
             Console.WriteLine("ESISharp SSO Authorization Router");
+            Console.ReadLine();
         }
     }
 }

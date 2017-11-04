@@ -1,8 +1,6 @@
-﻿using ESISharp.Model.Abstract;
-
-namespace ESISharp.Model.Enumeration
+﻿namespace ESISharp.Enumeration
 {
-    public class DataSource : FakeEnumerator
+    public class DataSource : Model.Abstract.FakeEnumerator
     {
         internal DataSource(string value) : base(value) { }
 

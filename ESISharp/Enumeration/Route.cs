@@ -1,8 +1,6 @@
-﻿using ESISharp.Model.Abstract;
-
-namespace ESISharp.Model.Enumeration
+﻿namespace ESISharp.Enumeration
 {
-    public class Route : FakeEnumerator
+    public class Route : Model.Abstract.FakeEnumerator
     {
         internal Route(string value) : base(value) { }
 
