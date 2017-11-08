@@ -16,7 +16,7 @@ namespace ESISharp.Paths.Public
             return new EsiRequest(EsiConnection, path, WebMethods.GET);
         }
 
-        public EsiRequest GetName(long AllianceID)
+        public EsiRequest GetNames(long AllianceID)
         {
             return GetNames(new long[] { AllianceID });
         }

@@ -4,7 +4,7 @@ namespace ESISharp.Paths.Authenticated.Alliance
 {
     public partial class Main : Public.Alliance
     {
-        private Contacts _Contacts;
+        private readonly Contacts _Contacts;
 
         public Contacts Contacts => _Contacts;
 
