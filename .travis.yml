@@ -1,12 +1,9 @@
 language: csharp
 solution: ESISharp.sln
-matrix:
-  include:
-    - dotnet: 2.0.0
-      mono: none
-      dist: trusty
-      sudo: required
-    - mono: latest
+dotnet: 2.0.0
+mono: none
+dist: trusty
+sudo: required
 script:
   - dotnet restore
   - dotnet build ./ESISharp/ -c Release
