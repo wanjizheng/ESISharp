@@ -18,6 +18,8 @@ namespace ESISharp.Model.Abstract
         internal HttpClient QueryClient;
         internal string UserAgent = @"ESISharp (github.com/wranders/ESISharp)";
 
+        internal Access Access;
+
         protected EsiConnection()
         {
             QueryClient = new HttpClient(ClientHandler);
@@ -25,6 +27,8 @@ namespace ESISharp.Model.Abstract
             QueryClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             QueryClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
             QueryClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("deflate"));
+
+            Access = Access.Public;
         }
 
         public void SetDataSource(DataSource datasource) => DataSource = datasource;

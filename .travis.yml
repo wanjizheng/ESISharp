@@ -1,12 +1,16 @@
 language: csharp
-dist: trusty
-sudo: required
-mono: none
-dotnet: 2.0.0
+solution: ESISharp.sln
+matrix:
+  include:
+    - dotnet: 2.0.0
+      mono: none
+      dist: trusty
+      sudo: required
+    - mono: latest
 script:
   - dotnet restore
-  - dotnet build ./ESISharp/
-  - dotnet build ./ESISharp.AuthRouter/
+  - dotnet build ./ESISharp/ -c Release
+  - dotnet build ./ESISharp.AuthRouter/ -c Release
 after_success:
   - sonar-scanner
 notifications:
@@ -19,6 +23,4 @@ addons:
     token:
       secure: $SONARCLOUD_TOKEN
     branches:
-      - master
-      - dev
       - v1-core

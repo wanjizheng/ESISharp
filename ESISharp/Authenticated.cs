@@ -1,27 +1,24 @@
-﻿using ESISharp.Paths.Authenticated;
+﻿using ESISharp.Enumeration;
+using ESISharp.Paths.Authenticated;
 
 namespace ESISharp
 {
     public class Authenticated : Model.Abstract.EsiConnection
     {
-        private Alliance _Alliance;
+        internal new Access Access = Access.Authenticated;
 
-        public Alliance Alliance => _Alliance;
+        private readonly Paths.Authenticated.Alliance.Main _Alliance;
 
+        public Paths.Authenticated.Alliance.Main Alliance => _Alliance;
 
         public Authenticated(string clientid) : base()
         {
-            Initialize();
+            _Alliance = new Paths.Authenticated.Alliance.Main(this);
         }
 
-        public Authenticated(string clientid, string secretkey) : base()
+        public Authenticated(string clientid, string secretkey) : this(clientid)
         {
-            Initialize();
-        }
-
-        private void Initialize()
-        {
-            _Alliance = new Alliance(this);
+            
         }
     }
 }
