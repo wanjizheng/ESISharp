@@ -1,4 +1,6 @@
 ESISharp.Test/dev_secret.json
+sonar-project-analyze.bat
+.sonarqube/
 .vs/
 *.suo
 [Dd]ebug/

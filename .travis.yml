@@ -8,16 +8,7 @@ script:
   - dotnet restore
   - dotnet build ./ESISharp/ -c Release
   - dotnet build ./ESISharp.AuthRouter/ -c Release
-after_success:
-  - sonar-scanner
 notifications:
   email:
     on_success: never
     on_failure: always
-addons:
-  sonarcloud:
-    organization: wranders-github
-    token:
-      secure: $SONARCLOUD_TOKEN
-    branches:
-      - v1-core
