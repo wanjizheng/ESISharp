@@ -36,11 +36,5 @@ namespace ESISharp.Test.Framework.Abstract
                 SwaggerSpec = JsonConvert.DeserializeObject<SwaggerSpec>(d);
             }
         }
-
-        [Fact]
-        public void Test()
-        {
-            Console.WriteLine(Url.ToString());
-        }
     }
 }

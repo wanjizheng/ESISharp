@@ -1,5 +1,6 @@
 ﻿using ESISharp.Enumeration;
 using ESISharp.Model.Abstract;
+using ESISharp.Model.Attributes;
 using ESISharp.Model.Object;
 using ESISharp.Web;
 using System;
@@ -17,6 +18,7 @@ namespace ESISharp.Paths.Public
             return GetAffiliation(new int[] { CharacterID });
         }
 
+        [Path("/characters/affiliation/", WebMethods.POST)]
         public EsiRequest GetAffiliation(IEnumerable<int> CharacterIDs)
         {
             var path = new Path() { "characters", "affiliation" };

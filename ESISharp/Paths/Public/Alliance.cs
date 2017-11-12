@@ -1,5 +1,6 @@
 ﻿using ESISharp.Enumeration;
 using ESISharp.Model.Abstract;
+using ESISharp.Model.Attributes;
 using ESISharp.Model.Object;
 using ESISharp.Web;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ESISharp.Paths.Public
     {
         internal Alliance(EsiConnection esiconnection) : base(esiconnection) { }
 
+        [Path("/alliances/", WebMethods.GET)]
         public EsiRequest GetAll()
         {
             var path = new Path() { "alliances" };
@@ -21,6 +23,7 @@ namespace ESISharp.Paths.Public
             return GetNames(new long[] { AllianceID });
         }
 
+        [Path("/alliances/names/", WebMethods.GET)]
         public EsiRequest GetNames(IEnumerable<long> AllianceIDs)
         {
             var path = new Path() { "alliances", "names" };
