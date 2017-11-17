@@ -16,6 +16,8 @@
 
             public static readonly Scope ReadFatigue = new Scope("esi-characters.read_fatigue.v1");
 
+            public static readonly Scope ReadFactionWarfareStats = new Scope("esi-characters.read_fw_stats.v1");
+
             public static readonly Scope ReadLoyalty = new Scope("esi-characters.read_loyalty.v1");
 
             public static readonly Scope ReadMedals = new Scope("esi-characters.read_medals.v1");

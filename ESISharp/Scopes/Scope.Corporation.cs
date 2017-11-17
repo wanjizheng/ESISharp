@@ -16,6 +16,8 @@
 
             public static readonly Scope ReadFacilities = new Scope("esi-corporations.read_facilities.v1");
 
+            public static readonly Scope ReadFactionWarfareStats = new Scope("esi-corporations.read_fw_stats.v1");
+
             public static readonly Scope ReadMedals = new Scope("esi-corporations.read_medals.v1");
 
             public static readonly Scope ReadStandings = new Scope("esi-corporations.read_standings.v1");
