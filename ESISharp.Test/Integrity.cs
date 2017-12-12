@@ -15,6 +15,7 @@ namespace ESISharp.Test
         public Integrity(ITestOutputHelper console) : base(console) { }
 
         [Fact]
+        [Trait("ESI API", "Integrity")]
         public void Scopes()
         {
             var scopes = Scope.All;
@@ -32,6 +33,7 @@ namespace ESISharp.Test
         }
 
         [Fact]
+        [Trait("ESI API", "Integrity")]
         public void Paths()
         {
             var assypaths = Assembly.GetAssembly(typeof(Public))

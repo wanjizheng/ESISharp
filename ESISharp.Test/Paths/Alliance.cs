@@ -12,6 +12,7 @@ namespace ESISharp.Test.Paths
         public Alliance(ITestOutputHelper console) : base(console) { }
 
         [Fact]
+        [Trait("Path", "Alliance")]
         public void Public_GetAll()
         {
             var r = Public.Alliance.GetAll().Execute();
@@ -22,6 +23,7 @@ namespace ESISharp.Test.Paths
         [Theory]
         [InlineData(1354830081)]
         [InlineData(new long[] { 1354830081, 99002782 })]
+        [Trait("Path", "Alliance")]
         public void Public_GetNames(dynamic AllianceIDs)
         {
             var r = Public.Alliance.GetNames(AllianceIDs).Execute();

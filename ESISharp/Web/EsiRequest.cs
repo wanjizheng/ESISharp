@@ -161,12 +161,12 @@ namespace ESISharp.Web
 
         private async Task<EsiResponse> PutAsync()
         {
-            throw new NotSupportedException();
+            throw new NotImplementedException();
         }
 
         private async Task<EsiResponse> DeleteAsync()
         {
-            throw new NotSupportedException();
+            throw new NotImplementedException();
         }
     }
 }

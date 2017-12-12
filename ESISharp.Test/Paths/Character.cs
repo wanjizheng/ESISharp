@@ -16,6 +16,7 @@ namespace ESISharp.Test.Paths
         [Theory]
         [InlineData(91105772)]
         [InlineData(new int[] { 91105772, 95589933 })]
+        [Trait("Path", "Alliance")]
         public void Public_GetCharacterAffiliation(dynamic CharacterIDs)
         {
             var r = Public.Character.GetAffiliation(CharacterIDs).Execute();

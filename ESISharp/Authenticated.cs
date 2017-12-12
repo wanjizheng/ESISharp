@@ -1,5 +1,4 @@
 ﻿using ESISharp.Enumeration;
-using ESISharp.Paths.Authenticated;
 
 namespace ESISharp
 {

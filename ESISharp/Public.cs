@@ -1,5 +1,4 @@
 ﻿using ESISharp.Enumeration;
-using ESISharp.Paths.Public;
 
 namespace ESISharp
 {
@@ -7,16 +6,16 @@ namespace ESISharp
     {
         internal new Access Access = Access.Public;
 
-        private readonly Alliance _Alliance;
-        private readonly Character _Character;
+        private readonly Paths.Public.Alliance _Alliance;
+        private readonly Paths.Public.Character _Character;
 
-        public Alliance Alliance => _Alliance;
-        public Character Character => _Character;
+        public Paths.Public.Alliance Alliance => _Alliance;
+        public Paths.Public.Character Character => _Character;
 
         public Public() : base()
         {
-            _Alliance = new Alliance(this);
-            _Character = new Character(this);
+            _Alliance = new Paths.Public.Alliance(this);
+            _Character = new Paths.Public.Character(this);
         }
     }
 }
