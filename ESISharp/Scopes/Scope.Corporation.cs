@@ -20,6 +20,8 @@
 
             public static readonly Scope ReadMedals = new Scope("esi-corporations.read_medals.v1");
 
+            public static readonly Scope ReadOutposts = new Scope("esi-corporations.read_outposts.v1");
+
             public static readonly Scope ReadStandings = new Scope("esi-corporations.read_standings.v1");
 
             public static readonly Scope ReadStarbases = new Scope("esi-corporations.read_starbases.v1");

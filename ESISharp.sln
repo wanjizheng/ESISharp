@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESISharp", "ESISharp\ESISharp.csproj", "{D12D6C13-1D98-42D0-949C-AD50E78EC272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESISharp", "ESISharp\ESISharp.csproj", "{D12D6C13-1D98-42D0-949C-AD50E78EC272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESISharp.AuthRouter", "ESISharp.AuthRouter\ESISharp.AuthRouter.csproj", "{32D9B854-0E44-4A7C-939D-55008DC1F8E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESISharp.AuthRouter", "ESISharp.AuthRouter\ESISharp.AuthRouter.csproj", "{32D9B854-0E44-4A7C-939D-55008DC1F8E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESISharp.Test", "ESISharp.Test\ESISharp.Test.csproj", "{DF73E3CA-31D9-412D-9C9E-764A6B45B5BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESISharp.Test", "ESISharp.Test\ESISharp.Test.csproj", "{DF73E3CA-31D9-412D-9C9E-764A6B45B5BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
