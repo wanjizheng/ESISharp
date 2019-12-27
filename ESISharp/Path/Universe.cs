@@ -177,6 +177,16 @@ namespace ESISharp.ESIPath
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Post, Data);
         }
 
+        /// <summary>Get IDs</summary>
+        /// <param name="TypeID">(Int32 List) Type ID</param>
+        /// <returns>EsiRequest</returns>
+        public EsiRequest GetID(IEnumerable<string> TypeIDs)
+        {
+            var Path = "/universe/ids/";
+            var Data = TypeIDs;
+            return new EsiRequest(EasyObject, Path, EsiWebMethod.Post, Data);
+        }
+
         /// <summary>Get Planet Information</summary>
         /// <param name="PlanetID">(Int32) Planet ID</param>
         /// <returns>EsiRequest</returns>
