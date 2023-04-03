@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Character
-{
+namespace ESISharp.ESIPath.Character {
     /// <summary>Authenticated Character Location paths</summary>
-    public class CharacterLocation
-    {
+    public class CharacterLocation {
         protected ESIEve EasyObject;
 
-        internal CharacterLocation(ESIEve EasyEve)
-        {
+        internal CharacterLocation(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_location" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLocation(int CharacterID)
-        {
+        public EsiRequest GetLocation(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/location/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -26,8 +22,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_online" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest IsOnline(int CharacterID)
-        {
+        public EsiRequest IsOnline(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/online/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -36,8 +31,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_ship" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetCurrentShip(int CharacterID)
-        {
+        public EsiRequest GetCurrentShip(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/ship/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }

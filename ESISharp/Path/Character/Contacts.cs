@@ -1,16 +1,13 @@
-﻿using ESISharp.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Character
-{
+namespace ESISharp.ESIPath.Character {
     /// <summary>Authenticated Character Contact paths</summary>
-    public class CharacterContacts
-    {
+    public class CharacterContacts {
         protected ESIEve EasyObject;
 
-        internal CharacterContacts(ESIEve EasyEve)
-        {
+        internal CharacterContacts(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -19,9 +16,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="CharacterToDelete">(Int32) CharacterID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest DeleteContacts(int CharacterID, int CharacterToDelete)
-        {
-            return DeleteContacts(CharacterID, new int[] { CharacterToDelete });
+        public EsiRequest DeleteContacts(int CharacterID, int CharacterToDelete) {
+            return DeleteContacts(CharacterID, new[] { CharacterToDelete });
         }
 
         /// <summary>Delete a Character's Contact</summary>
@@ -29,8 +25,7 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="CharactersToDelete">(Int32 List) CharacterID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest DeleteContacts(int CharacterID, IEnumerable<int> CharactersToDelete)
-        {
+        public EsiRequest DeleteContacts(int CharacterID, IEnumerable<int> CharactersToDelete) {
             var Path = $"/characters/{CharacterID.ToString()}/contacts/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthDelete, CharactersToDelete);
         }
@@ -39,8 +34,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetContacts(int CharacterID)
-        {
+        public EsiRequest GetContacts(int CharacterID) {
             return GetContacts(CharacterID, 1);
         }
 
@@ -49,11 +43,9 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Page">(Int32) Page</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetContacts(int CharacterID, int Page)
-        {
+        public EsiRequest GetContacts(int CharacterID, int Page) {
             var Path = $"/characters/{CharacterID.ToString()}/contacts/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -65,9 +57,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
         /// <param name="NewContactCharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID)
-        {
-            return AddContacts(CharacterID, Standing, new int[] { NewContactCharacterID }, false, null);
+        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID) {
+            return AddContacts(CharacterID, Standing, new[] { NewContactCharacterID }, false, null);
         }
 
         /// <summary>Add Contact</summary>
@@ -77,9 +68,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="NewContactCharacterID">(Int32) Character ID</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID, bool Watch)
-        {
-            return AddContacts(CharacterID, Standing, new int[] { NewContactCharacterID }, Watch, null);
+        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID, bool Watch) {
+            return AddContacts(CharacterID, Standing, new[] { NewContactCharacterID }, Watch, null);
         }
 
         /// <summary>Add Contact</summary>
@@ -90,9 +80,9 @@ namespace ESISharp.ESIPath.Character
         /// <param name="Watch">(Boolean) Watch</param>
         /// <param name="LabelID">(Int64) Contact Label</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID, bool Watch, long LabelID)
-        {
-            return AddContacts(CharacterID, Standing, new int[] { NewContactCharacterID }, Watch, LabelID);
+        public EsiRequest AddContacts(int CharacterID, float Standing, int NewContactCharacterID, bool Watch,
+            long LabelID) {
+            return AddContacts(CharacterID, Standing, new[] { NewContactCharacterID }, Watch, LabelID);
         }
 
         /// <summary>Add Contact</summary>
@@ -101,8 +91,7 @@ namespace ESISharp.ESIPath.Character
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
         /// <param name="NewContactCharacterIDs">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs)
-        {
+        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs) {
             return AddContacts(CharacterID, Standing, NewContactCharacterIDs, false, null);
         }
 
@@ -113,8 +102,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="NewContactCharacterIDs">(Int32) Character ID</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs, bool Watch)
-        {
+        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs,
+            bool Watch) {
             return AddContacts(CharacterID, Standing, NewContactCharacterIDs, Watch, null);
         }
 
@@ -126,13 +115,12 @@ namespace ESISharp.ESIPath.Character
         /// <param name="Watch">(Boolean) Watch</param>
         /// <param name="LabelID">(Int64) Contact Label</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs, bool Watch, long? LabelID)
-        {
+        public EsiRequest AddContacts(int CharacterID, float Standing, IEnumerable<int> NewContactCharacterIDs,
+            bool Watch, long? LabelID) {
             var Path = $"/characters/{CharacterID.ToString()}/contacts/";
             var PostData = NewContactCharacterIDs.ToArray();
-            var Label = (LabelID == null) ? 0 : LabelID;
-            var UrlData = new
-            {
+            var Label = LabelID == null ? 0 : LabelID;
+            var UrlData = new {
                 standing = Standing.ToString("N2"),
                 watched = Watch.ToString(),
                 label_id = Label.ToString()
@@ -144,46 +132,47 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterID">(Int32) Character ID<</param>
+        /// <param name="ContactCharacterID">
+        ///     (Int32) Character ID<</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID)
-        {
-            return EditContactsAsync(CharacterID, Standing, new int[] { ContactCharacterID }, false, null);
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID) {
+            return EditContactsAsync(CharacterID, Standing, new[] { ContactCharacterID }, false, null);
         }
 
         /// <summary>Edit Contact</summary>
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterID">(Int32) Character ID<</param>
+        /// <param name="ContactCharacterID">
+        ///     (Int32) Character ID<</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID, bool Watch)
-        {
-            return EditContactsAsync(CharacterID, Standing, new int[] { ContactCharacterID }, Watch, null);
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID, bool Watch) {
+            return EditContactsAsync(CharacterID, Standing, new[] { ContactCharacterID }, Watch, null);
         }
 
         /// <summary>Edit Contact</summary>
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterID">(Int32) Character ID<</param>
+        /// <param name="ContactCharacterID">
+        ///     (Int32) Character ID<</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <param name="LabelID">(Int64) Contact Label</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID, bool Watch, long LabelID)
-        {
-            return EditContactsAsync(CharacterID, Standing, new int[] { ContactCharacterID }, Watch, LabelID);
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, int ContactCharacterID, bool Watch,
+            long LabelID) {
+            return EditContactsAsync(CharacterID, Standing, new[] { ContactCharacterID }, Watch, LabelID);
         }
 
         /// <summary>Edit Contact</summary>
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterIDs">(Int32 List) Character ID<</param>
+        /// <param name="ContactCharacterIDs">
+        ///     (Int32 List) Character ID<</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs)
-        {
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs) {
             return EditContactsAsync(CharacterID, Standing, ContactCharacterIDs, false, null);
         }
 
@@ -191,11 +180,12 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterIDs">(Int32 List) Character ID<</param>
+        /// <param name="ContactCharacterIDs">
+        ///     (Int32 List) Character ID<</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs, bool Watch)
-        {
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs,
+            bool Watch) {
             return EditContactsAsync(CharacterID, Standing, ContactCharacterIDs, Watch, null);
         }
 
@@ -203,17 +193,17 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "write_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Standing">(Float) Standing, -10 to 10</param>
-        /// <param name="ContactCharacterIDs">(Int32 List) Character ID<</param>
+        /// <param name="ContactCharacterIDs">
+        ///     (Int32 List) Character ID<</param>
         /// <param name="Watch">(Boolean) Watch</param>
         /// <param name="LabelID">(Int64) Contact Label</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs, bool Watch, long? LabelID)
-        {
+        public EsiRequest EditContactsAsync(int CharacterID, float Standing, IEnumerable<int> ContactCharacterIDs,
+            bool Watch, long? LabelID) {
             var Path = $"/characters/{CharacterID.ToString()}/contacts/";
             var PutData = ContactCharacterIDs.ToArray();
-            var Label = (LabelID == null) ? 0 : LabelID;
-            var UrlData = new
-            {
+            var Label = LabelID == null ? 0 : LabelID;
+            var UrlData = new {
                 standing = Standing.ToString("N2"),
                 watched = Watch.ToString(),
                 label_id = Label.ToString()
@@ -225,8 +215,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_contacts" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLabels(int CharacterID)
-        {
+        public EsiRequest GetLabels(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/contacts/labels/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }

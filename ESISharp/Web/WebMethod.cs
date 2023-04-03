@@ -1,7 +1,5 @@
-﻿namespace ESISharp.Web
-{
-    internal enum EsiWebMethod
-    {
+﻿namespace ESISharp.Web {
+    internal enum EsiWebMethod {
         Get,
         Post,
         AuthGet,

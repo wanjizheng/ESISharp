@@ -1,17 +1,16 @@
-﻿namespace ESISharp.Enumerations
-{
+﻿namespace ESISharp.Enumerations {
     /// <summary>Market Order Types</summary>
-    public class MarketOrderType
-    {
+    public class MarketOrderType {
         /// <summary>All Orders</summary>
         public static readonly MarketOrderType All = new MarketOrderType("all");
+
         /// <summary>Buy Orders</summary>
         public static readonly MarketOrderType Buy = new MarketOrderType("buy");
+
         /// <summary>Sell Orders</summary>
         public static readonly MarketOrderType Sell = new MarketOrderType("sell");
 
-        internal MarketOrderType(string val)
-        {
+        internal MarketOrderType(string val) {
             Value = val;
         }
 

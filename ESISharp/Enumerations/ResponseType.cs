@@ -1,13 +1,10 @@
-﻿namespace ESISharp.Enumerations
-{
+﻿namespace ESISharp.Enumerations {
     /// <summary>API Response Data Types</summary>
-    public class ResponseType
-    {
+    public class ResponseType {
         /// <summary>JSON</summary>
         public static readonly ResponseType Json = new ResponseType("application/json");
 
-        internal ResponseType(string val)
-        {
+        internal ResponseType(string val) {
             Value = val;
         }
 

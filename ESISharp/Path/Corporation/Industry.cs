@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Corporation
-{
+namespace ESISharp.ESIPath.Corporation {
     /// <summary>Authenticated Corporation Industry paths</summary>
-    public class CorporationIndustry
-    {
+    public class CorporationIndustry {
         protected ESIEve EasyObject;
 
-        internal CorporationIndustry(ESIEve EasyEve)
-        {
+        internal CorporationIndustry(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_blueprints" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetBlueprints(int CorporationID)
-        {
+        public EsiRequest GetBlueprints(int CorporationID) {
             return GetBlueprints(CorporationID, 1);
         }
 
@@ -26,11 +22,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetBlueprints(int CorporationID, int Page)
-        {
+        public EsiRequest GetBlueprints(int CorporationID, int Page) {
             var Path = $"/corporations/{CorporationID.ToString()}/blueprints/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -40,8 +34,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_corporation_jobs" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetJobs(int CorporationID)
-        {
+        public EsiRequest GetJobs(int CorporationID) {
             return GetJobs(CorporationID, false, 1);
         }
 
@@ -50,8 +43,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="IncludeCompleted">(Boolean) Include Completed Jobs</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetJobs(int CorporationID, bool IncludeCompleted)
-        {
+        public EsiRequest GetJobs(int CorporationID, bool IncludeCompleted) {
             return GetJobs(CorporationID, IncludeCompleted, 1);
         }
 
@@ -61,11 +53,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="IncludeCompleted">(Boolean) Include Completed Jobs</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetJobs(int CorporationID, bool IncludeCompleted, int Page)
-        {
+        public EsiRequest GetJobs(int CorporationID, bool IncludeCompleted, int Page) {
             var Path = $"/corporations/{CorporationID.ToString()}/industry/jobs/";
-            var Data = new
-            {
+            var Data = new {
                 include_completed = IncludeCompleted,
                 page = Page
             };
@@ -76,8 +66,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_corporation_mining" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMoonExtractionTimers(int CorporationID)
-        {
+        public EsiRequest GetMoonExtractionTimers(int CorporationID) {
             var Path = $"/corporation/{CorporationID.ToString()}/mining/extractions/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -86,8 +75,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_corporation_mining" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMiningObservers(int CorporationID)
-        {
+        public EsiRequest GetMiningObservers(int CorporationID) {
             return GetMiningObservers(CorporationID, 1);
         }
 
@@ -96,11 +84,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMiningObservers(int CorporationID, int Page)
-        {
+        public EsiRequest GetMiningObservers(int CorporationID, int Page) {
             var Path = $"/corporation/{CorporationID.ToString()}/mining/observers/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -111,8 +97,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="ObserverID">(Int32) Observing Entity ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetObservedMining(int CorporationID, int ObserverID)
-        {
+        public EsiRequest GetObservedMining(int CorporationID, int ObserverID) {
             return GetObservedMining(CorporationID, ObserverID, 1);
         }
 
@@ -122,11 +107,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="ObserverID">(Int32) Observing Entity ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetObservedMining(int CorporationID, int ObserverID, int Page)
-        {
+        public EsiRequest GetObservedMining(int CorporationID, int ObserverID, int Page) {
             var Path = $"/corporation/{CorporationID.ToString()}/mining/observers/{ObserverID.ToString()}/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);

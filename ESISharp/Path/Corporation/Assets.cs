@@ -1,15 +1,12 @@
-﻿using ESISharp.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Corporation
-{
+namespace ESISharp.ESIPath.Corporation {
     /// <summary>Authenticated Corporation Asset paths</summary>
-    public class CorporationAssets
-    {
+    public class CorporationAssets {
         protected ESIEve EasyObject;
 
-        internal CorporationAssets(ESIEve EasyEve)
-        {
+        internal CorporationAssets(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -17,8 +14,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, using "read_corporation_assets" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CorporationID)
-        {
+        public EsiRequest GetAll(int CorporationID) {
             return GetAll(CorporationID, 1);
         }
 
@@ -27,8 +23,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CorporationID, int Page)
-        {
+        public EsiRequest GetAll(int CorporationID, int Page) {
             var Path = $"/corporations/{CorporationID.ToString()}/assets/";
             var Data = new { page = Page };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -39,9 +34,8 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="ItemID">(Int64) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLocation(int CorporationID, long ItemID)
-        {
-            return GetLocation(CorporationID, new long[] { ItemID });
+        public EsiRequest GetLocation(int CorporationID, long ItemID) {
+            return GetLocation(CorporationID, new[] { ItemID });
         }
 
         /// <summary>Get Asset Locations</summary>
@@ -49,8 +43,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="ItemID">(Int64 List) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLocation(int CorporationID, IEnumerable<long> ItemIDs)
-        {
+        public EsiRequest GetLocation(int CorporationID, IEnumerable<long> ItemIDs) {
             var Path = $"/corporations/{CorporationID.ToString()}/assets/locations/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthPost, ItemIDs);
         }
@@ -60,9 +53,8 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="ItemID">(Int64) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetName(int CorporationID, long ItemID)
-        {
-            return GetName(CorporationID, new long[] { ItemID });
+        public EsiRequest GetName(int CorporationID, long ItemID) {
+            return GetName(CorporationID, new[] { ItemID });
         }
 
         /// <summary>Get Asset Names</summary>
@@ -70,8 +62,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="ItemID">(Int64 List) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetName(int CorporationID, IEnumerable<long> ItemIDs)
-        {
+        public EsiRequest GetName(int CorporationID, IEnumerable<long> ItemIDs) {
             var Path = $"/corporations/{CorporationID.ToString()}/assets/names/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthPost, ItemIDs);
         }

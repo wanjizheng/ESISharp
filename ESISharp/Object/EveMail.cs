@@ -1,31 +1,19 @@
-﻿using ESISharp.Enumerations;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ESISharp.Enumerations;
 
-namespace ESISharp.Object
-{
+namespace ESISharp.Object {
     /// <summary>Object Representing and Eve Mail</summary>
-    public class EveMail
-    {
-        /// <summary>Approved maximum CSPA cost</summary>
-        public int ApprovedCost { get; }
-        /// <summary>Eve Mail Message Body</summary>
-        public string Body { get; }
-        /// <summary>List of Recipients</summary>
-        public List<Recipient> Recipients { get; }
-        /// <summary>Eve Mail Message Subject</summary>
-        public string Subject { get; }
-
+    public class EveMail {
         /// <summary>Create a new Eve Mail</summary>
         /// <param name="MailBody">(String) Message Body</param>
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(String) Recipient Type</param>
-        public EveMail(string MailBody, string MailSubject, int MailRecipientID, string MailRecipientType)
-        {
+        public EveMail(string MailBody, string MailSubject, int MailRecipientID, string MailRecipientType) {
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { new Recipient(MailRecipientID, MailRecipientType) };
+            Recipients = new List<Recipient> { new Recipient(MailRecipientID, MailRecipientType) };
         }
 
         /// <summary>Create a new Eve Mail</summary>
@@ -33,11 +21,10 @@ namespace ESISharp.Object
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(MailRecipientType) Recipient Type</param>
-        public EveMail(string MailBody, string MailSubject, int MailRecipientID,  MailRecipientType MailRecipientType)
-        {
+        public EveMail(string MailBody, string MailSubject, int MailRecipientID, MailRecipientType MailRecipientType) {
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { new Recipient(MailRecipientID, MailRecipientType) };
+            Recipients = new List<Recipient> { new Recipient(MailRecipientID, MailRecipientType) };
         }
 
         /// <summary>Create a new Eve Mail</summary>
@@ -46,12 +33,12 @@ namespace ESISharp.Object
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(String) Recipient Type</param>
         /// <param name="MailApprovedCost">(Int32) Approved maximum CSPA ISK cost</param>
-        public EveMail(string MailBody, string MailSubject, int MailRecipientID, string MailRecipientType, int MailApprovedCost)
-        {
+        public EveMail(string MailBody, string MailSubject, int MailRecipientID, string MailRecipientType,
+            int MailApprovedCost) {
             ApprovedCost = MailApprovedCost;
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { new Recipient(MailRecipientID, MailRecipientType) };
+            Recipients = new List<Recipient> { new Recipient(MailRecipientID, MailRecipientType) };
         }
 
         /// <summary>Create a new Eve Mail</summary>
@@ -60,23 +47,22 @@ namespace ESISharp.Object
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(MailRecipientType) Recipient Type</param>
         /// <param name="MailApprovedCost">(Int32) Approved maximum CSPA ISK cost</param>
-        public EveMail(string MailBody, string MailSubject, int MailRecipientID, MailRecipientType MailRecipientType, int MailApprovedCost)
-        {
+        public EveMail(string MailBody, string MailSubject, int MailRecipientID, MailRecipientType MailRecipientType,
+            int MailApprovedCost) {
             ApprovedCost = MailApprovedCost;
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { new Recipient(MailRecipientID, MailRecipientType) };
+            Recipients = new List<Recipient> { new Recipient(MailRecipientID, MailRecipientType) };
         }
 
         /// <summary>Create a new Eve Mail</summary>
         /// <param name="MailBody">(String) Message Body</param>
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipient">(Recipient) Recipient</param>
-        public EveMail(string MailBody, string MailSubject, Recipient MailRecipient)
-        {
+        public EveMail(string MailBody, string MailSubject, Recipient MailRecipient) {
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { MailRecipient };
+            Recipients = new List<Recipient> { MailRecipient };
         }
 
         /// <summary>Create a new Eve Mail</summary>
@@ -84,20 +70,18 @@ namespace ESISharp.Object
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipient">(Recipient) Recipient</param>
         /// <param name="MailApprovedCost">(Int32) Approved maximum CSPA ISK cost</param>
-        public EveMail(string MailBody, string MailSubject, Recipient MailRecipient, int MailApprovedCost)
-        {
+        public EveMail(string MailBody, string MailSubject, Recipient MailRecipient, int MailApprovedCost) {
             ApprovedCost = MailApprovedCost;
             Body = MailBody;
             Subject = MailSubject;
-            Recipients = new List<Recipient>() { MailRecipient };
+            Recipients = new List<Recipient> { MailRecipient };
         }
 
         /// <summary>Create a new Eve Mail</summary>
         /// <param name="MailBody">(String) Message Body</param>
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipients">(Recipient List) Recipients</param>
-        public EveMail(string MailBody, string MailSubject, IEnumerable<Recipient> MailRecipients)
-        {
+        public EveMail(string MailBody, string MailSubject, IEnumerable<Recipient> MailRecipients) {
             Body = MailBody;
             Subject = MailSubject;
             Recipients = MailRecipients.ToList();
@@ -108,28 +92,33 @@ namespace ESISharp.Object
         /// <param name="MailSubject">(String) Message Subject</param>
         /// <param name="MailRecipients">(Recipient List) Recipients</param>
         /// <param name="MailApprovedCost">(Int32) Approved maximum CSPA ISK cost</param>
-        public EveMail(string MailBody, string MailSubject, IEnumerable<Recipient> MailRecipient, int MailApprovedCost)
-        {
+        public EveMail(string MailBody, string MailSubject, IEnumerable<Recipient> MailRecipient,
+            int MailApprovedCost) {
             ApprovedCost = MailApprovedCost;
             Body = MailBody;
             Subject = MailSubject;
             Recipients = MailRecipient.ToList();
         }
+
+        /// <summary>Approved maximum CSPA cost</summary>
+        public int ApprovedCost { get; }
+
+        /// <summary>Eve Mail Message Body</summary>
+        public string Body { get; }
+
+        /// <summary>List of Recipients</summary>
+        public List<Recipient> Recipients { get; }
+
+        /// <summary>Eve Mail Message Subject</summary>
+        public string Subject { get; }
     }
 
     /// <summary>Object Representing an Eve Mail Recipient</summary>
-    public class Recipient
-    {
-        /// <summary>Recipient Character ID</summary>
-        public int RecipientID { get; }
-        /// <summary>Recipient Type</summary>
-        public string RecipientType { get; }
-
+    public class Recipient {
         /// <summary>Create a new Eve Mail Recipient</summary>
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(String) Recipient Type</param>
-        public Recipient(int MailRecipientID, string MailRecipientType)
-        {
+        public Recipient(int MailRecipientID, string MailRecipientType) {
             RecipientID = MailRecipientID;
             RecipientType = MailRecipientType;
         }
@@ -137,10 +126,15 @@ namespace ESISharp.Object
         /// <summary>Create a new Eve Mail Recipient</summary>
         /// <param name="MailRecipientID">(Int32) Recipient Character ID</param>
         /// <param name="MailRecipientType">(MailRecipientType) Recipient Type</param>
-        public Recipient(int MailRecipientID, MailRecipientType MailRecipientType)
-        {
+        public Recipient(int MailRecipientID, MailRecipientType MailRecipientType) {
             RecipientID = MailRecipientID;
             RecipientType = MailRecipientType.Value;
         }
+
+        /// <summary>Recipient Character ID</summary>
+        public int RecipientID { get; }
+
+        /// <summary>Recipient Type</summary>
+        public string RecipientType { get; }
     }
 }

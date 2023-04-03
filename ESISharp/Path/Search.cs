@@ -1,61 +1,53 @@
-﻿using ESISharp.Enumerations;
-using ESISharp.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ESISharp.Enumerations;
+using ESISharp.Web;
 
-namespace ESISharp.ESIPath
-{
+namespace ESISharp.ESIPath {
     /// <summary>Public Search paths</summary>
-    public class Search
-    {
+    public class Search {
         protected ESIEve EasyObject;
 
-        internal Search(ESIEve EasyEve)
-        {
+        internal Search(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
         /// <summary>Perform Public Search</summary>
         /// <param name="Query">(String) Search Query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query)
-        {
-            return SearchPublic(Query, new string[] { SearchCategory.All.Value }, false, Language.English);
+        public EsiRequest SearchPublic(string Query) {
+            return SearchPublic(Query, new[] { SearchCategory.All.Value }, false, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, bool Strict)
-        {
-            return SearchPublic(Query, new string[] { SearchCategory.All.Value }, Strict, Language.English);
+        public EsiRequest SearchPublic(string Query, bool Strict) {
+            return SearchPublic(Query, new[] { SearchCategory.All.Value }, Strict, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Category">(SearchCategory) Category to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, SearchCategory Category)
-        {
-            return SearchPublic(Query, new string[] { Category.Value }, false, Language.English);
+        public EsiRequest SearchPublic(string Query, SearchCategory Category) {
+            return SearchPublic(Query, new[] { Category.Value }, false, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Category">(String) Category to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, string Category)
-        {
-            return SearchPublic(Query, new string[] { Category }, false, Language.English);
+        public EsiRequest SearchPublic(string Query, string Category) {
+            return SearchPublic(Query, new[] { Category }, false, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Categories">(SearchCategory List) Categories to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories) {
             return SearchPublic(Query, Categories.Select(c => c.ToString()).ToArray(), false, Language.English);
         }
 
@@ -63,8 +55,7 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Categories">(String List) Categories to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories) {
             return SearchPublic(Query, Categories, false, Language.English);
         }
 
@@ -73,9 +64,8 @@ namespace ESISharp.ESIPath
         /// <param name="Category">(SearchCategory) Category to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict)
-        {
-            return SearchPublic(Query, new string[] { Category.Value }, Strict, Language.English);
+        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict) {
+            return SearchPublic(Query, new[] { Category.Value }, Strict, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -83,9 +73,8 @@ namespace ESISharp.ESIPath
         /// <param name="Category">(String) Category to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, string Category, bool Strict)
-        {
-            return SearchPublic(Query, new string[] { Category }, Strict, Language.English);
+        public EsiRequest SearchPublic(string Query, string Category, bool Strict) {
+            return SearchPublic(Query, new[] { Category }, Strict, Language.English);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -93,8 +82,7 @@ namespace ESISharp.ESIPath
         /// <param name="Categories">(SearchCategory List) Categories to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict) {
             return SearchPublic(Query, Categories.Select(c => c.ToString()).ToArray(), Strict, Language.English);
         }
 
@@ -103,8 +91,7 @@ namespace ESISharp.ESIPath
         /// <param name="Categories">(String List) Categories to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict) {
             return SearchPublic(Query, Categories, Strict, Language.English);
         }
 
@@ -114,9 +101,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict, Language Language)
-        {
-            return SearchPublic(Query, new string[] { Category.Value }, Strict, Language.Value);
+        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict, Language Language) {
+            return SearchPublic(Query, new[] { Category.Value }, Strict, Language.Value);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -125,9 +111,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, string Category, bool Strict, Language Language)
-        {
-            return SearchPublic(Query, new string[] { Category }, Strict, Language.Value);
+        public EsiRequest SearchPublic(string Query, string Category, bool Strict, Language Language) {
+            return SearchPublic(Query, new[] { Category }, Strict, Language.Value);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -136,8 +121,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict, Language Language)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict,
+            Language Language) {
             return SearchPublic(Query, Categories.Select(c => c.ToString()).ToArray(), Strict, Language.Value);
         }
 
@@ -147,8 +132,7 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict, Language Language)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict, Language Language) {
             return SearchPublic(Query, Categories, Strict, Language.Value);
         }
 
@@ -158,9 +142,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict, string Language)
-        {
-            return SearchPublic(Query, new string[] { Category.Value }, Strict, Language);
+        public EsiRequest SearchPublic(string Query, SearchCategory Category, bool Strict, string Language) {
+            return SearchPublic(Query, new[] { Category.Value }, Strict, Language);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -169,9 +152,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, string Category, bool Strict, string Language)
-        {
-            return SearchPublic(Query, new string[] { Category }, Strict, Language);
+        public EsiRequest SearchPublic(string Query, string Category, bool Strict, string Language) {
+            return SearchPublic(Query, new[] { Category }, Strict, Language);
         }
 
         /// <summary>Perform Public Search</summary>
@@ -180,8 +162,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict, string Language)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<SearchCategory> Categories, bool Strict,
+            string Language) {
             return SearchPublic(Query, Categories.Select(c => c.ToString()).ToArray(), Strict, Language);
         }
 
@@ -191,11 +173,9 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict, string Language)
-        {
+        public EsiRequest SearchPublic(string Query, IEnumerable<string> Categories, bool Strict, string Language) {
             var Path = "/search/";
-            var Data = new
-            {
+            var Data = new {
                 search = Query,
                 categories = Categories.ToArray(),
                 language = Language,
@@ -206,10 +186,8 @@ namespace ESISharp.ESIPath
     }
 
     /// <summary>Public and Authenticated Search paths</summary>
-    public class AuthSearch : Search
-    {
-        internal AuthSearch(ESIEve EasyEve) : base(EasyEve)
-        {
+    public class AuthSearch : Search {
+        internal AuthSearch(ESIEve EasyEve) : base(EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -218,9 +196,9 @@ namespace ESISharp.ESIPath
         /// <param name="CharacterID">(Int32) Chracter ID</param>
         /// <param name="Query">(String) Search Query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { SearchCategory.All.Value }, false, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { SearchCategory.All.Value }, false,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -229,9 +207,9 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, bool Strict)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { SearchCategory.All.Value }, Strict, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, bool Strict) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { SearchCategory.All.Value }, Strict,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -240,9 +218,9 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Category">(SearchCategory) Category to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category.Value }, false, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category.Value }, false,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -251,9 +229,9 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Categories">(SearchCategory List) Categories to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories)
-        {
-            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), false, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories) {
+            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), false,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -262,9 +240,9 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Category">(String) Category to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category }, false, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category }, false,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -273,8 +251,7 @@ namespace ESISharp.ESIPath
         /// <param name="Query">(String) Search Query</param>
         /// <param name="Categories">(String List) Categories to search</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories)
-        {
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories) {
             return SearchAuthenticated(CharacterID, Query, Categories, false, Language.English.Value);
         }
 
@@ -285,9 +262,9 @@ namespace ESISharp.ESIPath
         /// <param name="Category">(SearchCategory) Category to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category.Value }, Strict, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category.Value }, Strict,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -297,9 +274,10 @@ namespace ESISharp.ESIPath
         /// <param name="Categories">(SearchCategory List) Categories to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories, bool Strict)
-        {
-            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories,
+            bool Strict) {
+            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -309,9 +287,9 @@ namespace ESISharp.ESIPath
         /// <param name="Category">(String) Category to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category }, Strict, Language.English.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category }, Strict,
+                Language.English.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -321,8 +299,8 @@ namespace ESISharp.ESIPath
         /// <param name="Categories">(String List) Categories to search</param>
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories, bool Strict)
-        {
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories,
+            bool Strict) {
             return SearchAuthenticated(CharacterID, Query, Categories, Strict, Language.English.Value);
         }
 
@@ -334,9 +312,9 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict, Language Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category.Value }, Strict, Language.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict,
+            Language Language) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category.Value }, Strict, Language.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -347,9 +325,10 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories, bool Strict, Language Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict, Language.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories,
+            bool Strict, Language Language) {
+            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict,
+                Language.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -360,9 +339,9 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict, Language Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category }, Strict, Language.Value);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict,
+            Language Language) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category }, Strict, Language.Value);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -373,8 +352,8 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories, bool Strict, Language Language)
-        {
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories,
+            bool Strict, Language Language) {
             return SearchAuthenticated(CharacterID, Query, Categories, Strict, Language.Value);
         }
 
@@ -386,9 +365,9 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict, string Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category.Value }, Strict, Language);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, SearchCategory Category, bool Strict,
+            string Language) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category.Value }, Strict, Language);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -399,9 +378,10 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories, bool Strict, string Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict, Language);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<SearchCategory> Categories,
+            bool Strict, string Language) {
+            return SearchAuthenticated(CharacterID, Query, Categories.Select(c => c.ToString()).ToList(), Strict,
+                Language);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -412,9 +392,9 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict, string Language)
-        {
-            return SearchAuthenticated(CharacterID, Query, new List<string>() { Category }, Strict, Language);
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, string Category, bool Strict,
+            string Language) {
+            return SearchAuthenticated(CharacterID, Query, new List<string> { Category }, Strict, Language);
         }
 
         /// <summary>Perform Authenticated search</summary>
@@ -425,11 +405,10 @@ namespace ESISharp.ESIPath
         /// <param name="Strict">(Boolean) Strictly match query</param>
         /// <param name="Language">(String) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories, bool Strict, string Language)
-        {
+        public EsiRequest SearchAuthenticated(int CharacterID, string Query, IEnumerable<string> Categories,
+            bool Strict, string Language) {
             var Path = $"/characters/{CharacterID.ToString()}/search/";
-            var Data = new
-            {
+            var Data = new {
                 search = Query,
                 categories = Categories.ToArray(),
                 language = Language,

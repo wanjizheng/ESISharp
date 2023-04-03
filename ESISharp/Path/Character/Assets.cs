@@ -1,15 +1,12 @@
-﻿using ESISharp.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Character
-{
+namespace ESISharp.ESIPath.Character {
     /// <summary>Authenticated Character Asset paths</summary>
-    public class CharacterAssets
-    {
+    public class CharacterAssets {
         protected ESIEve EasyObject;
 
-        internal CharacterAssets(ESIEve EasyEve)
-        {
+        internal CharacterAssets(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -17,8 +14,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_assets" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CharacterID)
-        {
+        public EsiRequest GetAll(int CharacterID) {
             return GetAll(CharacterID, 1);
         }
 
@@ -27,8 +23,7 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CharacterID, int Page)
-        {
+        public EsiRequest GetAll(int CharacterID, int Page) {
             var Path = $"/characters/{CharacterID.ToString()}/assets/";
             var Data = new { page = Page };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -39,9 +34,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="ItemID">(Int64) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLocation(int CharacterID, long ItemID)
-        {
-            return GetLocation(CharacterID, new long[] { ItemID });
+        public EsiRequest GetLocation(int CharacterID, long ItemID) {
+            return GetLocation(CharacterID, new[] { ItemID });
         }
 
         /// <summary>Get Asset Locations</summary>
@@ -49,8 +43,7 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="ItemID">(Int64 List) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetLocation(int CharacterID, IEnumerable<long> ItemIDs)
-        {
+        public EsiRequest GetLocation(int CharacterID, IEnumerable<long> ItemIDs) {
             var Path = $"/characters/{CharacterID.ToString()}/assets/locations/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthPost, ItemIDs);
         }
@@ -60,9 +53,8 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="ItemID">(Int64) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetName(int CharacterID, long ItemID)
-        {
-            return GetName(CharacterID, new long[] { ItemID });
+        public EsiRequest GetName(int CharacterID, long ItemID) {
+            return GetName(CharacterID, new[] { ItemID });
         }
 
         /// <summary>Get Asset Names</summary>
@@ -70,8 +62,7 @@ namespace ESISharp.ESIPath.Character
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <param name="ItemID">(Int64 List) Item ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetName(int CharacterID, IEnumerable<long> ItemIDs)
-        {
+        public EsiRequest GetName(int CharacterID, IEnumerable<long> ItemIDs) {
             var Path = $"/characters/{CharacterID.ToString()}/assets/names/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthPost, ItemIDs);
         }

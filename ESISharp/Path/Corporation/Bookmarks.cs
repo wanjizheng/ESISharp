@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Corporation
-{
+namespace ESISharp.ESIPath.Corporation {
     /// <summary>Authenticated Corporation Bookmark paths</summary>
-    public class CorporationBookmarks
-    {
+    public class CorporationBookmarks {
         protected ESIEve EasyObject;
 
-        internal CorporationBookmarks(ESIEve EasyEve)
-        {
+        internal CorporationBookmarks(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_corporation_bookmarks" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CorporationID)
-        {
+        public EsiRequest GetAll(int CorporationID) {
             return GetAll(CorporationID, 1);
         }
 
@@ -26,11 +22,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CorporationID, int Page)
-        {
+        public EsiRequest GetAll(int CorporationID, int Page) {
             var Path = $"/corporations/{CorporationID.ToString()}/bookmarks/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
@@ -40,8 +34,7 @@ namespace ESISharp.ESIPath.Corporation
         /// <remarks>Requires SSO Authentication, uses "read_corporation_bookmarks" scope</remarks>
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetFolders(int CorporationID)
-        {
+        public EsiRequest GetFolders(int CorporationID) {
             return GetFolders(CorporationID, 1);
         }
 
@@ -50,11 +43,9 @@ namespace ESISharp.ESIPath.Corporation
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetFolders(int CorporationID, int Page)
-        {
+        public EsiRequest GetFolders(int CorporationID, int Page) {
             var Path = $"/corporations/{CorporationID.ToString()}/bookmarks/folders/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);

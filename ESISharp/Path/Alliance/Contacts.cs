@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Alliance
-{
+namespace ESISharp.ESIPath.Alliance {
     /// <summary></summary>
-    public class AllianceContacts
-    {
+    public class AllianceContacts {
         protected ESIEve EasyObject;
 
-        internal AllianceContacts(ESIEve EasyEve)
-        {
+        internal AllianceContacts(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Alliance
         /// <remarks>Requires SSO Authentication, using "read_contacts" scope</remarks>
         /// <param name="AllianceID">(Int32) Alliance ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest Get(int AllianceID)
-        {
+        public EsiRequest Get(int AllianceID) {
             return Get(AllianceID, 1);
         }
 
@@ -26,11 +22,9 @@ namespace ESISharp.ESIPath.Alliance
         /// <param name="AllianceID">(Int32) Alliance ID</param>
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest Get(int AllianceID, int Page)
-        {
+        public EsiRequest Get(int AllianceID, int Page) {
             var Path = $"/alliances/{AllianceID.ToString()}/contacts/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);

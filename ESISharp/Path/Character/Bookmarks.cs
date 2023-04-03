@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Character
-{
+namespace ESISharp.ESIPath.Character {
     /// <summary>Authenticated Character Bookmark paths</summary>
-    public class CharacterBookmarks
-    {
+    public class CharacterBookmarks {
         protected ESIEve EasyObject;
 
-        internal CharacterBookmarks(ESIEve EasyEve)
-        {
+        internal CharacterBookmarks(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, uses "read_character_bookmarks" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetAll(int CharacterID)
-        {
+        public EsiRequest GetAll(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/bookmarks/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -26,8 +22,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, uses "read_character_bookmarks" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetFolders(int CharacterID)
-        {
+        public EsiRequest GetFolders(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/bookmarks/folders/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }

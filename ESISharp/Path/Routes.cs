@@ -1,16 +1,13 @@
-﻿using ESISharp.Web;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ESISharp.Web;
 
-namespace ESISharp.ESIPath
-{
+namespace ESISharp.ESIPath {
     /// <summary>Public Routes paths</summary>
-    public class Routes
-    {
+    public class Routes {
         protected ESIEve EasyObject;
 
-        internal Routes(ESIEve EasyEve)
-        {
+        internal Routes(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -18,8 +15,7 @@ namespace ESISharp.ESIPath
         /// <param name="OriginID">(Int32) Origin System ID</param>
         /// <param name="DestinationID">(Int32) Destination System ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID)
-        {
+        public EsiRequest GetRoute(int OriginID, int DestinationID) {
             return GetRoute(OriginID, DestinationID, new int[] { }, new int[] { });
         }
 
@@ -28,9 +24,8 @@ namespace ESISharp.ESIPath
         /// <param name="DestinationID">(Int32) Destination System ID</param>
         /// <param name="Avoid">(Int32) System to Avoid</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid)
-        {
-            return GetRoute(OriginID, DestinationID, new int[] { Avoid }, new int[] { });
+        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid) {
+            return GetRoute(OriginID, DestinationID, new[] { Avoid }, new int[] { });
         }
 
         /// <summary>Get Systems Along a Route</summary>
@@ -38,8 +33,7 @@ namespace ESISharp.ESIPath
         /// <param name="DestinationID">(Int32) Destination System ID</param>
         /// <param name="Avoid">(Int32 List) Systems to Avoid</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid)
-        {
+        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid) {
             return GetRoute(OriginID, DestinationID, Avoid, new int[] { });
         }
 
@@ -49,9 +43,8 @@ namespace ESISharp.ESIPath
         /// <param name="Avoid">(Int32) System to Avoid</param>
         /// <param name="Connection">(Int32) System to Connect</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid, int Connection)
-        {
-            return GetRoute(OriginID, DestinationID, new int[] { Avoid }, new int[] { Connection });
+        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid, int Connection) {
+            return GetRoute(OriginID, DestinationID, new[] { Avoid }, new[] { Connection });
         }
 
         /// <summary>Get Systems Along a Route</summary>
@@ -60,9 +53,8 @@ namespace ESISharp.ESIPath
         /// <param name="Avoid">(Int32 List) Systems to Avoid</param>
         /// <param name="Connection">(Int32) System to Connect</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid, int Connection)
-        {
-            return GetRoute(OriginID, DestinationID, Avoid, new int[] { Connection });
+        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid, int Connection) {
+            return GetRoute(OriginID, DestinationID, Avoid, new[] { Connection });
         }
 
         /// <summary>Get Systems Along a Route</summary>
@@ -71,9 +63,8 @@ namespace ESISharp.ESIPath
         /// <param name="Avoid">(Int32) System to Avoid</param>
         /// <param name="Connections">(Int32 List) Systems to Connect</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid, IEnumerable<int> Connections)
-        {
-            return GetRoute(OriginID, DestinationID, new int[] { Avoid }, Connections);
+        public EsiRequest GetRoute(int OriginID, int DestinationID, int Avoid, IEnumerable<int> Connections) {
+            return GetRoute(OriginID, DestinationID, new[] { Avoid }, Connections);
         }
 
         /// <summary>Get Systems Along a Route</summary>
@@ -82,23 +73,20 @@ namespace ESISharp.ESIPath
         /// <param name="Avoid">(Int32 List) Systems to Avoid</param>
         /// <param name="Connections">(Int32 List) Systems to Connect</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid, IEnumerable<int> Connections)
-        {
+        public EsiRequest GetRoute(int OriginID, int DestinationID, IEnumerable<int> Avoid,
+            IEnumerable<int> Connections) {
             var Path = $"/route/{OriginID.ToString()}/{DestinationID.ToString()}/";
-            var Data = new
-            {
-                avoid = (Avoid != null && Avoid.Any()) ? Avoid : null,
-                connections = (Connections != null && Connections.Any()) ? Connections : null
+            var Data = new {
+                avoid = Avoid != null && Avoid.Any() ? Avoid : null,
+                connections = Connections != null && Connections.Any() ? Connections : null
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get, Data);
         }
     }
 
     /// <summary>Public and Authenticated Routes paths</summary>
-    public class AuthRoutes : Routes
-    {
-        internal AuthRoutes(ESIEve EasyEve) : base(EasyEve)
-        {
+    public class AuthRoutes : Routes {
+        internal AuthRoutes(ESIEve EasyEve) : base(EasyEve) {
             EasyObject = EasyEve;
         }
     }

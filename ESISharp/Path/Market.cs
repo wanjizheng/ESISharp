@@ -1,22 +1,18 @@
 ﻿using ESISharp.Enumerations;
 using ESISharp.Web;
 
-namespace ESISharp.ESIPath
-{
+namespace ESISharp.ESIPath {
     /// <summary>Public Market paths</summary>
-    public class Market
-    {
+    public class Market {
         protected ESIEve EasyObject;
 
-        internal Market(ESIEve EasyEve)
-        {
+        internal Market(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
         /// <summary>List Market Prices</summary>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetPrices()
-        {
+        public EsiRequest GetPrices() {
             var Path = "/markets/prices/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get);
         }
@@ -25,11 +21,9 @@ namespace ESISharp.ESIPath
         /// <param name="RegionID">(Int32) Region ID</param>
         /// <param name="TypeID">(Int32) Type ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionMarketHistory(int RegionID, int TypeID)
-        {
+        public EsiRequest GetRegionMarketHistory(int RegionID, int TypeID) {
             var Path = $"/markets/{RegionID.ToString()}/history/";
-            var Data = new
-            {
+            var Data = new {
                 type_id = TypeID
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get, Data);
@@ -38,8 +32,7 @@ namespace ESISharp.ESIPath
         /// <summary>Get orders in a Region (First Page)</summary>
         /// <param name="RegionID">(Int32) Region ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID)
-        {
+        public EsiRequest GetRegionOrders(int RegionID) {
             return GetRegionOrders(RegionID, null, MarketOrderType.All.Value, 1);
         }
 
@@ -47,8 +40,7 @@ namespace ESISharp.ESIPath
         /// <param name="RegionID">(Int32) Region ID</param>
         /// <param name="TypeID">(Int32) Type ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID, int TypeID)
-        {
+        public EsiRequest GetRegionOrders(int RegionID, int TypeID) {
             return GetRegionOrders(RegionID, TypeID, MarketOrderType.All.Value, 1);
         }
 
@@ -57,8 +49,7 @@ namespace ESISharp.ESIPath
         /// <param name="TypeID">(Int32) Type ID</param>
         /// <param name="OrderType">(MarketOrderType) Market Order Type</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, MarketOrderType OrderType)
-        {
+        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, MarketOrderType OrderType) {
             return GetRegionOrders(RegionID, TypeID, OrderType.Value, 1);
         }
 
@@ -67,8 +58,7 @@ namespace ESISharp.ESIPath
         /// <param name="TypeID">(Int32) Type ID</param>
         /// <param name="OrderType">(String) Market Order Type</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, string OrderType)
-        {
+        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, string OrderType) {
             return GetRegionOrders(RegionID, TypeID, OrderType, 1);
         }
 
@@ -78,8 +68,7 @@ namespace ESISharp.ESIPath
         /// <param name="OrderType">(MarketOrderType) Market Order Type</param>
         /// <param name="Page">(Int32) Page number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, MarketOrderType OrderType, int Page)
-        {
+        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, MarketOrderType OrderType, int Page) {
             return GetRegionOrders(RegionID, TypeID, OrderType.Value, Page);
         }
 
@@ -89,11 +78,9 @@ namespace ESISharp.ESIPath
         /// <param name="OrderType">(String) Market Order Type</param>
         /// <param name="Page">(Int32) Page number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, string OrderType, int Page)
-        {
+        public EsiRequest GetRegionOrders(int RegionID, int? TypeID, string OrderType, int Page) {
             var Path = $"/markets/{RegionID.ToString()}/orders/";
-            var Data = new
-            {
+            var Data = new {
                 type_id = TypeID,
                 order_type = OrderType,
                 page = Page
@@ -103,8 +90,7 @@ namespace ESISharp.ESIPath
 
         /// <summary>Get Market Groups</summary>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMarketGroups()
-        {
+        public EsiRequest GetMarketGroups() {
             var Path = "/markets/groups/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get);
         }
@@ -112,8 +98,7 @@ namespace ESISharp.ESIPath
         /// <summary>Get Market Group Information</summary>
         /// <param name="GroupID">(Int32) Market Group ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMarketGroupInfo(int GroupID)
-        {
+        public EsiRequest GetMarketGroupInfo(int GroupID) {
             return GetMarketGroupInfo(GroupID, Language.English);
         }
 
@@ -121,37 +106,32 @@ namespace ESISharp.ESIPath
         /// <param name="GroupID">(Int32) Market Group ID</param>
         /// <param name="Language">(Language) Language</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetMarketGroupInfo(int GroupID, Language Language)
-        {
+        public EsiRequest GetMarketGroupInfo(int GroupID, Language Language) {
             var Path = $"/markets/groups/{GroupID.ToString()}/";
-            var Data = new
-            {
+            var Data = new {
                 language = Language.Value
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get, Data);
         }
 
         /// <summary>
-        /// Get type IDs with active orders in a Region (First Page)
+        ///     Get type IDs with active orders in a Region (First Page)
         /// </summary>
         /// <param name="RegionID">(Int32 Region ID)</param>
         /// <returns></returns>
-        public EsiRequest GetMarketTypes(int RegionID)
-        {
+        public EsiRequest GetMarketTypes(int RegionID) {
             return GetMarketTypes(RegionID, 1);
         }
 
         /// <summary>
-        /// Get type IDs with active orders in a Region
+        ///     Get type IDs with active orders in a Region
         /// </summary>
         /// <param name="RegionID">(Int32 Region ID)</param>
         /// <param name="Page">(Int32) Page number</param>
         /// <returns></returns>
-        public EsiRequest GetMarketTypes(int RegionID, int Page)
-        {
+        public EsiRequest GetMarketTypes(int RegionID, int Page) {
             var Path = $"/markets/{RegionID.ToString()}/types/";
-            var Data = new
-            {
+            var Data = new {
                 page = Page
             };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.Get, Data);
@@ -159,10 +139,8 @@ namespace ESISharp.ESIPath
     }
 
     /// <summary>Public and Authenticated Market paths</summary>
-    public class AuthMarket : Market
-    {
-        internal AuthMarket(ESIEve EasyEve) : base(EasyEve)
-        {
+    public class AuthMarket : Market {
+        internal AuthMarket(ESIEve EasyEve) : base(EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -170,8 +148,7 @@ namespace ESISharp.ESIPath
         /// <remarks>Requires SSO Authentication, using "structure_markets" scope</remarks>
         /// <param name="StructureID">(Int64) Structure ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetStructureOrders(long StructureID)
-        {
+        public EsiRequest GetStructureOrders(long StructureID) {
             return GetStructureOrders(StructureID, 1);
         }
 
@@ -180,8 +157,7 @@ namespace ESISharp.ESIPath
         /// <param name="StructureID">(Int64) Structure ID</param>
         /// <param name="Page">(Int32) Page number</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetStructureOrders(long StructureID, int Page)
-        {
+        public EsiRequest GetStructureOrders(long StructureID, int Page) {
             var Path = $"/markets/structures/{StructureID.ToString()}/";
             var Data = new { page = Page };
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);

@@ -1,14 +1,11 @@
 ﻿using ESISharp.Web;
 
-namespace ESISharp.ESIPath.Character
-{
+namespace ESISharp.ESIPath.Character {
     /// <summary>Authenticated Character Wallet paths</summary>
-    public class CharacterWallet
-    {
+    public class CharacterWallet {
         protected ESIEve EasyObject;
 
-        internal CharacterWallet(ESIEve EasyEve)
-        {
+        internal CharacterWallet(ESIEve EasyEve) {
             EasyObject = EasyEve;
         }
 
@@ -16,8 +13,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_character_wallet" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetWalletBalance(int CharacterID)
-        {
+        public EsiRequest GetWalletBalance(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/wallet/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -26,8 +22,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_character_wallet" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetWalletJounal(int CharacterID)
-        {
+        public EsiRequest GetWalletJounal(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/wallet/journal/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
@@ -36,8 +31,7 @@ namespace ESISharp.ESIPath.Character
         /// <remarks>Requires SSO Authentication, using "read_character_wallet" scope</remarks>
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
-        public EsiRequest GetWalletTransactions(int CharacterID)
-        {
+        public EsiRequest GetWalletTransactions(int CharacterID) {
             var Path = $"/characters/{CharacterID.ToString()}/wallet/transactions/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
