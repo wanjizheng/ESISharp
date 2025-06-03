@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using ESISharp.Enumerations;
+﻿using ESISharp.Enumerations;
 using ESISharp.ESIPath;
 using ESISharp.Web;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace ESISharp {
     /// <summary>Object for interfacing with the ESI API</summary>
@@ -17,6 +18,7 @@ namespace ESISharp {
         internal string UserAgent = @"ESISharp (github.com/wranders/ESISharp)";
 
         internal ESIEve() {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
             QueryClient = new HttpClient(ClientHandler);
             QueryClient.DefaultRequestHeaders.Add("User-Agent", UserAgent);
             QueryClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
