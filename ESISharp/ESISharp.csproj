@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\MyProject\iEVE\iTrader\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\iEVE\iTrader\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,6 +59,7 @@
     <Compile Include="Enumerations\StructureVulnerability.cs" />
     <Compile Include="ESIEve.SSO.Operations.cs" />
     <Compile Include="ESIEve.SSO.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Object\EsiResponse.cs" />
     <Compile Include="Object\Fitting.cs" />
     <Compile Include="Object\EveMail.cs" />
