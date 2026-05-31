@@ -83,10 +83,25 @@ namespace ESISharp.Web {
             return ExecuteAsync().Result;
         }
 
+        /// <summary>Execute the ESI Request and deserialize the response body into a typed DTO</summary>
+        /// <typeparam name="T">Target response type</typeparam>
+        /// <returns>Deserialized response body</returns>
+        public T Execute<T>() {
+            return ExecuteAsync<T>().Result;
+        }
+
         /// <summary>Asynchronous Execution of the ESI Request</summary>
         /// <returns>EsiResponse</returns>
         public async Task<EsiResponse> ExecuteAsync() {
             return await RequestMethod(Data).ConfigureAwait(false);
+        }
+
+        /// <summary>Asynchronous execution of the ESI Request with typed deserialization</summary>
+        /// <typeparam name="T">Target response type</typeparam>
+        /// <returns>Deserialized response body</returns>
+        public async Task<T> ExecuteAsync<T>() {
+            var Response = await ExecuteAsync().ConfigureAwait(false);
+            return Response.Deserialize<T>();
         }
 
         private async Task<EsiResponse> GetAsync(params object[] RequestData) {

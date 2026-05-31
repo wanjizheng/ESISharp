@@ -67,7 +67,7 @@ namespace ESISharp.ESIPath.Corporation {
         /// <param name="CorporationID">(Int32) Corporation ID</param>
         /// <returns>EsiRequest</returns>
         public EsiRequest GetMoonExtractionTimers(int CorporationID) {
-            var Path = $"/corporation/{CorporationID.ToString()}/mining/extractions/";
+            var Path = $"/corporations/{CorporationID.ToString()}/mining/extractions/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
 
@@ -85,7 +85,7 @@ namespace ESISharp.ESIPath.Corporation {
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
         public EsiRequest GetMiningObservers(int CorporationID, int Page) {
-            var Path = $"/corporation/{CorporationID.ToString()}/mining/observers/";
+            var Path = $"/corporations/{CorporationID.ToString()}/mining/observers/";
             var Data = new {
                 page = Page
             };
@@ -108,7 +108,7 @@ namespace ESISharp.ESIPath.Corporation {
         /// <param name="Page">(Int32) Page Number</param>
         /// <returns>EsiRequest</returns>
         public EsiRequest GetObservedMining(int CorporationID, int ObserverID, int Page) {
-            var Path = $"/corporation/{CorporationID.ToString()}/mining/observers/{ObserverID.ToString()}/";
+            var Path = $"/corporations/{CorporationID.ToString()}/mining/observers/{ObserverID.ToString()}/";
             var Data = new {
                 page = Page
             };

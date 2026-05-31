@@ -66,6 +66,9 @@ namespace ESISharp.ESIPath {
         /// <summary>Assets paths</summary>
         public CorporationAssets Assets;
 
+        /// <summary>Structures paths</summary>
+        public CorporationStructures Structures;
+
         /// <summary>Bookmark paths</summary>
         public CorporationBookmarks Bookmarks;
 
@@ -78,8 +81,20 @@ namespace ESISharp.ESIPath {
         /// <summary>Faction Warfare paths</summary>
         public CorporationFactionWarfare FactionWarfare;
 
+        /// <summary>Freelance Jobs paths</summary>
+        public CorporationFreelanceJobs FreelanceJobs;
+
+        /// <summary>Projects paths</summary>
+        public CorporationProjects Projects;
+
         /// <summary>Industry paths</summary>
         public CorporationIndustry Industry;
+
+        /// <summary>Standings paths</summary>
+        public CorporationStandings Standings;
+
+        /// <summary>Shares paths</summary>
+        public CorporationShares Shares;
 
         /// <summary>Killmails paths</summary>
         public CorporationKillmails Killmails;
@@ -94,11 +109,16 @@ namespace ESISharp.ESIPath {
             EasyObject = (ESIEve.Authenticated)EasyEve;
 
             Assets = new CorporationAssets(EasyObject);
+            Structures = new CorporationStructures(EasyObject);
             Bookmarks = new CorporationBookmarks(EasyObject);
             Contacts = new CorporationContacts(EasyObject);
             Contracts = new CorporationContracts(EasyObject);
             FactionWarfare = new CorporationFactionWarfare(EasyObject);
+            FreelanceJobs = new CorporationFreelanceJobs(EasyObject);
+            Projects = new CorporationProjects(EasyObject);
             Industry = new CorporationIndustry(EasyObject);
+            Standings = new CorporationStandings(EasyObject);
+            Shares = new CorporationShares(EasyObject);
             Killmails = new CorporationKillmails(EasyObject);
             Market = new CorporationMarket(EasyObject);
             Wallet = new CorporationWallet(EasyEve);

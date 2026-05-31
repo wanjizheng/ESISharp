@@ -69,11 +69,23 @@ namespace ESISharp {
             /// <summary>Public Alliance paths</summary>
             public AllianceMain Alliance;
 
+            /// <summary>Public Activities paths</summary>
+            public Activities Activities;
+
             /// <summary>Public Character paths</summary>
             public CharacterMain Character;
 
             /// <summary>Public Corporation paths</summary>
             public CorporationMain Corporation;
+
+            /// <summary>Public Contracts paths</summary>
+            public Contracts Contracts;
+
+            /// <summary>Public Meta paths</summary>
+            public Meta Meta;
+
+            /// <summary>Public Faction paths</summary>
+            public Factions Factions;
 
             /// <summary>Public Dogma paths</summary>
             public Dogma Dogma;
@@ -126,8 +138,12 @@ namespace ESISharp {
             /// <summary>Construct Public ESI interface</summary>
             public Public() {
                 Alliance = new AllianceMain(this);
+                Activities = new Activities(this);
                 Character = new CharacterMain(this);
                 Corporation = new CorporationMain(this);
+                Contracts = new Contracts(this);
+                Meta = new Meta(this);
+                Factions = new Factions(this);
                 Dogma = new Dogma(this);
                 FactionWarfare = new FactionWarfare(this);
                 Incursions = new Incursions(this);
@@ -151,6 +167,9 @@ namespace ESISharp {
         public class Authenticated : ESIEve {
             /// <summary>Public and Authenticated Alliance paths</summary>
             public AuthAllianceMain Alliance;
+
+            /// <summary>Public and Authenticated Faction paths</summary>
+            public Factions Factions;
 
             /// <summary>Public and Authenticated Character paths</summary>
             public AuthCharacterMain Character;
@@ -185,6 +204,9 @@ namespace ESISharp {
             /// <summary>Public and Authenticated Market paths</summary>
             public AuthMarket Market;
 
+            /// <summary>Public and Authenticated Meta paths</summary>
+            public AuthMeta Meta;
+
             /// <summary>Public and Authenticated Opportunities paths</summary>
             public AuthOpportunities Opportunities;
 
@@ -209,6 +231,9 @@ namespace ESISharp {
             /// <summary>Authenticated User Interface paths</summary>
             public UserInterface UserInterface;
 
+            /// <summary>Public and Authenticated Status paths</summary>
+            public AuthStatus Status;
+
             /// <summary>Public and Authenticated Wars paths</summary>
             public AuthWars Wars;
 
@@ -232,6 +257,7 @@ namespace ESISharp {
                 Character = new AuthCharacterMain(this);
                 Corporation = new AuthCorporationMain(this);
                 Dogma = new AuthDogma(this);
+                Factions = new Factions(this);
                 FactionWarfare = new AuthFactionWarfare(this);
                 Fleet = new AuthFleet(this);
                 Incursions = new AuthIncursions(this);
@@ -240,11 +266,13 @@ namespace ESISharp {
                 Killmails = new AuthKillmails(this);
                 Loyalty = new AuthLoyalty(this);
                 Market = new AuthMarket(this);
+                Meta = new AuthMeta(this);
                 Opportunities = new AuthOpportunities(this);
                 PlanetaryInteraction = new AuthPlanetaryInteraction(this);
                 Routes = new AuthRoutes(this);
                 Search = new AuthSearch(this);
                 Sovereignty = new AuthSovereignty(this);
+                Status = new AuthStatus(this);
                 Universe = new AuthUniverse(this);
                 UserInterface = new UserInterface(this);
                 Wars = new AuthWars(this);

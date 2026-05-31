@@ -75,11 +75,20 @@ namespace ESISharp.ESIPath {
         /// <summary>Assets paths</summary>
         public CharacterAssets Assets;
 
+        /// <summary>Access Lists paths</summary>
+        public CharacterAccessLists AccessLists;
+
+        /// <summary>Mercenary Tactical Operations paths</summary>
+        public CharacterMercenaryTacticalOperations MercenaryTacticalOperations;
+
         /// <summary>Bookmarks paths</summary>
         public CharacterBookmarks Bookmarks;
 
         /// <summary>Calendar paths</summary>
         public CharacterCalendar Calendar;
+
+        /// <summary>Structures paths</summary>
+        public CharacterStructures Structures;
 
         /// <summary>Clones paths</summary>
         public CharacterClones Clones;
@@ -92,6 +101,9 @@ namespace ESISharp.ESIPath {
 
         /// <summary>Faction Warfare paths</summary>
         public CharacterFactionWarfare FactionWarfare;
+
+        /// <summary>Freelance Jobs paths</summary>
+        public CharacterFreelanceJobs FreelanceJobs;
 
         /// <summary>Fittings paths</summary>
         public CharacterFittings Fittings;
@@ -133,12 +145,16 @@ namespace ESISharp.ESIPath {
             EasyObject = (ESIEve.Authenticated)EasyEve;
 
             Assets = new CharacterAssets(EasyObject);
+            AccessLists = new CharacterAccessLists(EasyObject);
+            MercenaryTacticalOperations = new CharacterMercenaryTacticalOperations(EasyObject);
             Bookmarks = new CharacterBookmarks(EasyObject);
             Calendar = new CharacterCalendar(EasyObject);
+            Structures = new CharacterStructures(EasyObject);
             Clones = new CharacterClones(EasyObject);
             Contacts = new CharacterContacts(EasyObject);
             Contracts = new CharacterContracts(EasyObject);
             FactionWarfare = new CharacterFactionWarfare(EasyObject);
+            FreelanceJobs = new CharacterFreelanceJobs(EasyObject);
             Fittings = new CharacterFittings(EasyObject);
             Fleet = new CharacterFleet(EasyObject);
             Industry = new CharacterIndustry(EasyObject);
@@ -216,7 +232,7 @@ namespace ESISharp.ESIPath {
         /// <param name="CharacterID"></param>
         /// <returns></returns>
         public EsiRequest GetNotifications(int CharacterID) {
-            var Path = $"/character/{CharacterID.ToString()}/notifications/";
+            var Path = $"/characters/{CharacterID.ToString()}/notifications/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
 
@@ -225,7 +241,7 @@ namespace ESISharp.ESIPath {
         /// <param name="CharacterID">(Int32) Character ID</param>
         /// <returns>EsiRequest</returns>
         public EsiRequest GetContactNotifications(int CharacterID) {
-            var Path = $"/character/{CharacterID.ToString()}/notifications/contacts/";
+            var Path = $"/characters/{CharacterID.ToString()}/notifications/contacts/";
             return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet);
         }
 

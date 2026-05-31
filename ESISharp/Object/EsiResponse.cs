@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace ESISharp {
     /// <summary>ESI Reponse Object containing HTTP response information</summary>
@@ -26,6 +27,13 @@ namespace ESISharp {
 
         /// <summary>Response Header Serialized</summary>
         public EsiResponseHeaders Headers { get; }
+
+        /// <summary>Deserialize the response body into a strongly typed object</summary>
+        /// <typeparam name="T">Target response type</typeparam>
+        /// <returns>Deserialized object</returns>
+        public T Deserialize<T>() {
+            return JsonConvert.DeserializeObject<T>(Body);
+        }
     }
 
     /// <summary>ESI Serialized HTTP Response Headers</summary>

@@ -58,7 +58,7 @@ namespace ESISharp.ESIPath.Character {
         public EsiRequest RespondToEvent(int CharacterID, int EventID, string Response) {
             var Path = $"/characters/{CharacterID.ToString()}/calendar/{EventID.ToString()}/";
             var Data = new { response = Response };
-            return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthGet, Data);
+            return new EsiRequest(EasyObject, Path, EsiWebMethod.AuthPost, Data);
         }
 
         /// <summary>Get specific Calendar Event's Attendees and their responses</summary>
